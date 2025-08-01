@@ -47,4 +47,4 @@ The final results will be saved in `clustering/cluster_result_output`.
 
   #### Plot the output
 
-  -  Purity, NMI and RI calculate the degree of agreement between an algorithm's clustering result and its labels.
+  -  ACC, NMI and ARI calculate the degree of agreement between an algorithm's clustering result and its labels.
