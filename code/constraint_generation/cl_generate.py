@@ -135,9 +135,6 @@ def initialize_min_distances_np(embeddings_matrix, initial_indices):
     selected_vecs = embeddings_matrix[initial_indices]  # shape: (k, D)
     all_vecs = embeddings_matrix  # shape: (N, D)
 
-    # 计算所有点与初始化点的欧几里得距离的最小值
-    # 广播：(N, D) - (k, D) => (N, k, D)
-    # 再取 norm along D，然后取 min over k
     diffs = all_vecs[:, None, :] - selected_vecs[None, :, :]  # shape: (N, k, D)
     dists = np.linalg.norm(diffs, axis=2)  # shape: (N, k)
     min_dists = np.min(dists, axis=1)      # shape: (N,)
@@ -150,7 +147,7 @@ def update_min_distances_np(min_dists, embeddings_matrix, new_index):
 
     diffs = all_vecs - new_vec  # shape: (N, D)
     dists = np.linalg.norm(diffs, axis=1)  # shape: (N,)
-    np.minimum(min_dists, dists, out=min_dists)  # 就地更新，不占新内存
+    np.minimum(min_dists, dists, out=min_dists)
 
 
 def Llama_70B_instruct_turbo(content):
@@ -300,7 +297,6 @@ for sd in sd_list:
             else:
                 update_min_distances_np(min_distances, embeddings_matrix, c_[-1])
 
-            # 获取候选点（大于 R 且不在 c_ 里）
             c_set = set(c_)
             candidates = [i for i in range(len(min_distances)) if min_distances[i] > R and i not in c_set]
             if not candidates:
