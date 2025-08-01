@@ -48,3 +48,4 @@ The final results will be saved in `clustering/cluster_result_output`.
   #### Plot the output
 
   -  ACC, NMI and ARI calculate the degree of agreement between an algorithm's clustering result and its labels.
+  -  Measure the quality of LLM-generated constraints in terms of query time and correctness.
