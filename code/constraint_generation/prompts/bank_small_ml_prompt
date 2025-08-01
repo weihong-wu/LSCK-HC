@@ -1,0 +1,24 @@
+Give a series of target text. If they are identical in terms of the bank user query intent, write them in the same group []. If they are different, write them in the different [],...,[].
+Your output must contain all the target points as in the example, if a target point has no similarities it should be placed in a separate [].
+Here are a few examples:
+Example 1:
+target text 1:How do I locate my card?
+target text 2:Is there a way to know when my card will arrive?
+target text 3:Can you please show me where I can find the location to link my card?
+Output:[1,2],[3]
+Example 2:
+target text 1:What is the need to verify my identity?
+target text 2:What things do I need to verify my identity?
+Output:[1],[2]
+Example 3:
+target text 1:Where can I find your locations?
+target text 2:I am from the EU, can I sign up?
+target text 3:Google pay and top up, I want it, can I get it?
+target text 4:How do I use the top up app with my apple watch?
+target text 5:How many countries do you support?
+target text 6:Using an ATM caused me to incur an additional fee. Why?
+target text 7:Some cash is showing up in my app that I did not get.
+target text 8:What are the countries you operate in.
+Output:[1,2,5,8],[3,4],[6],[7]
+Strictly following the answer format of the example, the answer is given directly after reasoning, without any explanation.
+Now please judge:
