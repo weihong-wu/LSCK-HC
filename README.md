@@ -1,4 +1,4 @@
-# Optimized Algorithms of Text Clustering with LLM-Generated Constraints
+# Optimized Algorithms for Text Clustering with LLM-Generated Constraints
 
   ## Dependencies
   - python version: 3.10
